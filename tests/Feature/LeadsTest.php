@@ -22,12 +22,26 @@ class LeadsTest extends TestCase
      */
     public function testLeadSaving()
     {
-        $response = $this->post('/api/lead', /* ... */);
+        $data=[
+            "name" => "prueba",
+            "email"=>"email@gmail.com",
+            "phone"=>"3214569874"
+        ];
+        $response = $this->post('/api/lead', $data);
 
-        $response->assertStatus(/* ... */);
+        $response->assertStatus(200);
 
-        $response->assertJson(/* ... */);
+        $response->assertJson(
+        [
+            'message'=>"tus datos se han enviado correctamente.",
+            'data'=>$data
+        ]);
 
-        $this->assertDatabaseHas(/* ... */);
+        $this->assertDatabaseHas('leads',[
+            'name'=> 'prueba',
+            'email'=>'email@gmail.com',
+            'phone'=>'3214569874'
+        ]);
+        $response->assertOk();
     }
 }

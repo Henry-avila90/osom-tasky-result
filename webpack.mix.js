@@ -11,19 +11,5 @@ const mix = require('laravel-mix');
  |
  */
 
-mix
-  .webpackConfig({
-    resolve: {
-      alias: {
-        'react-dom': '@hot-loader/react-dom'
-      }
-    }
-  })
-  .js('resources/js/landing.js', 'public/js')
-  .sass('resources/sass/landing.scss', 'public/css');
-
-
-mix.browserSync({
-    proxy: 'localhost:8000',
-    open: false
-});
+mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css').vue();

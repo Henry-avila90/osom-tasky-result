@@ -101,6 +101,11 @@ cp .env.example .env
 ```
 php artisan key:generate
 ```
+```
+php artisan migrate:install
+```
+```
+php artisan migrate
 
 ### Levantar servers
 
@@ -108,5 +113,5 @@ php artisan key:generate
 php artisan serve
 ```
 ```
-npm run hot
+npm run watch o npm run dev
 ```
